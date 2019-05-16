@@ -1,0 +1,3 @@
+purse,container for carrying small items
+book,bound pages of written text read by user
+doll,toy replica of person played with by children
