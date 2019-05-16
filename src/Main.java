@@ -11,32 +11,32 @@ import java.util.Scanner;
 //
 //If the word is found, display its definition.
 public class Main {
-        public static void main(String[] args) {
-            Scanner reader = new Scanner(System.in);
-            HashMap<String, String> definitions = new HashMap<String, String>();
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        HashMap<String, String> definitions = new HashMap<String, String>();
 
-            System.out.println("Enter a word");
-            String word = reader.nextLine();
+        System.out.println("Enter a word");
+        String word = reader.nextLine();
 
-
-            for (String v: definitions.keySet())
-
+        for (String s : definitions.keySet())
+            if (definitions.containsKey("word"))
             {
-                System.out.println(v + " : " + definitions.get(v));
+                System.out.println(s + " : " + definitions.get(s));
             }
 
-            try {
+        try {
 
-                File myFile = new File("src/test.txt");
-                Scanner myReader = new Scanner(myFile);
-                while (myReader.hasNextLine()) {
-                    String txt = myReader.nextLine();
-                    System.out.println(txt);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            File myFile = new File("src/test.txt");
+            Scanner myReader = new Scanner(myFile);
+            while (myReader.hasNextLine()) {
+                String txt = myReader.nextLine();
+                System.out.println(txt);
             }
-        }}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 
 
