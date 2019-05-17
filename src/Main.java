@@ -11,30 +11,38 @@ import java.util.Scanner;
 //
 //If the word is found, display its definition.
 public class Main {
+    private static HashMap<String, String> definitions = new HashMap<String, String>();
+
     public static void main(String[] args) {
+        File myFile = new File("src/test.txt");
         Scanner reader = new Scanner(System.in);
-        HashMap<String, String> definitions = new HashMap<String, String>();
-
-        System.out.println("Enter a word");
-        String word = reader.nextLine();
-
-        for (String s : definitions.keySet())
-            if (definitions.containsKey("word"))
-            {
-                System.out.println(s + " : " + definitions.get(s));
-            }
 
         try {
-
-            File myFile = new File("src/test.txt");
             Scanner myReader = new Scanner(myFile);
             while (myReader.hasNextLine()) {
                 String txt = myReader.nextLine();
-                System.out.println(txt);
+                String[] parts = txt.split(",");
+                definitions.put(parts[0], parts[1]);
+                System.out.println("Enter a word");
+                String defWord = reader.nextLine().trim().toLowerCase();
+                String response = definitions.get(defWord) != null?definitions.get(defWord):"Word not found!";
+
+                System.out.println(response);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
+        for (String s : definitions.keySet())
+
+            {
+                System.out.println(s + " : " + definitions.get(s));
+            }
+
+
     }
 }
 
